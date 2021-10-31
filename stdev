@@ -1,0 +1,2 @@
+awk '{s+=$1;s2+=$1^2;n+=1}END{print s/n, sqrt(s2/n-(s/n)^2)}'
+#awk '{s+=$1;s2+=$1**2;n+=1}END{print s/n, sqrt(s2/n-(s/n)**2), sqrt(s2/n-(s/n)**2)/sqrt(n)}'
