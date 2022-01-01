@@ -1,0 +1,7 @@
+#Usage: calcfediff  fes.dat  a b c d
+#Calculates difference between the two regions a-b and c-d.
+
+
+#This is the exponentially averaged energy
+grep . $1 | awk 'BEGIN{s1='$2'; s2='$3'; s3='$4'; s4='$5'; kt=2.5}{e=$2; c=exp(-e/kt); if ($1>s1 && $1<=s2) {q1+=c} if($1>s3 && $1<s4) {q2+=c} }END{print -kt*log(q1/q2)}'
+#grep . $1 | awk 'BEGIN{s1='$2'; s2='$3'; s3='$4'; s4='$5'; kt=2.5}{e=$2; c=exp(-e/kt); if ($1>s1 && $1<=s2) {q1+=c} if($1>s3 && $1<s4) {q2+=c} }END{print -kt*log(q1/q2), q1, q2}'
